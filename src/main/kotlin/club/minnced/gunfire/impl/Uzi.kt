@@ -29,7 +29,7 @@ import kotlin.coroutines.experimental.CoroutineContext
  */
 class Uzi(val context: CoroutineContext = CommonPool) : Gun() {
 
-    override fun <T : Bullet> fireBullet(bullet: T, targets: List<(T) -> Unit>) {
+    override fun <T : Bullet> fireBullet(bullet: T, targets: List<(Bullet) -> Unit>) {
         launch(context) {
             super.fireBullet(bullet, targets)
         }

@@ -35,7 +35,7 @@ class Revolver : Gun() {
         }
     }
 
-    override fun <T : Bullet> fireBullet(bullet: T, targets: List<(T) -> Unit>) {
+    override fun <T : Bullet> fireBullet(bullet: T, targets: List<(Bullet) -> Unit>) {
         executor.execute { super.fireBullet(bullet, targets) }
     }
 }

@@ -18,7 +18,7 @@ package club.minnced.test
 
 import club.minnced.gunfire.Bullet
 import club.minnced.gunfire.fire
-import club.minnced.gunfire.impl.Uzi
+import club.minnced.gunfire.impl.Sniper
 import club.minnced.gunfire.impl.bullets.ErrorBullet
 import club.minnced.gunfire.target
 import org.junit.Before
@@ -29,7 +29,7 @@ typealias static = JvmStatic
 
 class GunTest {
 
-    private val gun = Uzi()
+    private val gun = Sniper()
 
     @Before
     fun registerTargets() {
@@ -39,11 +39,12 @@ class GunTest {
         }
 
         gun.target<Bullet> {
-            println("Second Event Arrived! Why??")
+            println("This is fired for everything")
         }
 
         gun.target<ErrorBullet> {
-            println("Caught an Error?!?! Message: ${it.error.message} - Bullet: ${it.bullet} - Target: ${it.target}")
+            println("Caught an Error?!?! Bullet: ${it.bullet} - Target: ${it.target}")
+            it.error.printStackTrace()
         }
 
         gun.target<TestBullet> {
@@ -56,7 +57,7 @@ class GunTest {
     fun fireBullets() {
         System.err.println("FIRE!!!!")
         gun.fire { TestBullet }
-        Thread.sleep(2000)
+        Thread.sleep(5000)
     }
 
     object TestBullet : Bullet

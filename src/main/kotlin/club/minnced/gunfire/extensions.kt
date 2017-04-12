@@ -16,20 +16,22 @@
 
 package club.minnced.gunfire
 
-import java.util.Collections
-
+@Suppress("UNCHECKED_CAST")
 inline infix fun <reified T : Bullet> Gun.fire(builder: () -> T): List<(T) -> Unit> {
-    val list = targets[T::class]
-    if (list === null || list.isEmpty())
-        return Collections.emptyList()
 
     val bullet = builder()
+    val targetType = T::class.java
+    val birdseye = targets
+            .asSequence()
+            .filter { it.type.isAssignableFrom(targetType) }
+            .map { it as (Bullet) -> Unit }
+            .toList()
 
-    fireBullet(bullet, list)
-    return list
+    fireBullet(bullet, birdseye)
+    return birdseye
 }
 
 @Suppress("UNCHECKED_CAST")
 inline infix fun <reified T : Bullet> Gun.target(noinline callback: (T) -> Unit) {
-    registerTarget(T::class, callback as (Bullet) -> Unit)
+    registerTarget(T::class.java, callback)
 }

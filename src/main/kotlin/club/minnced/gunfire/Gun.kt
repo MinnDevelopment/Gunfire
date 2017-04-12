@@ -17,33 +17,32 @@
 package club.minnced.gunfire
 
 import club.minnced.gunfire.impl.bullets.ErrorBullet
-import kotlin.reflect.KClass
 
 open class Gun {
 
-    val targets: MutableMap<KClass<out Bullet>, MutableList<(Bullet) -> Unit>> = hashMapOf()
+    val targets: MutableList<TargetWrapper<*>> = mutableListOf()
 
-    open fun registerTarget(type: KClass<out Bullet>, callback: (Bullet) -> Unit) {
-        targets.compute(type) { _, list->
-            if (list === null) {
-                return@compute mutableListOf(callback)
-            }
-            else {
-                list.add(callback)
-                return@compute list
-            }
-        }
+    open fun <T : Bullet> registerTarget(type: Class<T>, callback: (T) -> Unit) {
+        targets += TargetWrapper(type, callback)
     }
 
     @Suppress("UNCHECKED_CAST")
-    open fun <T : Bullet> fireBullet(bullet: T, targets: List<(T) -> Unit>) = targets.forEach {
+    open fun <T : Bullet> fireBullet(bullet: T, targets: List<(Bullet) -> Unit>) = targets.forEach {
         try {
             it(bullet)
         }
         catch (ex: Throwable) {
             if (bullet !is ErrorBullet)
-                fire { ErrorBullet(bullet, it as (Bullet) -> Unit, ex) }
+                fire { ErrorBullet(bullet, it, ex) }
         }
+    }
+
+    class TargetWrapper<T : Bullet>(val type: Class<T>, val target: (T) -> Unit) : (T) -> Unit {
+
+        override fun invoke(bullet: T) {
+            target(bullet)
+        }
+
     }
 
 }

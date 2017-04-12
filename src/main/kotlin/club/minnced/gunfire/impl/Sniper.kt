@@ -28,7 +28,7 @@ class Sniper : Gun() {
 
     val lock = Any()
 
-    override fun <T : Bullet> fireBullet(bullet: T, targets: List<(T) -> Unit>) {
+    override fun <T : Bullet> fireBullet(bullet: T, targets: List<(Bullet) -> Unit>) {
         synchronized(lock) { super.fireBullet(bullet, targets) }
     }
 }
