@@ -1,0 +1,53 @@
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '1.2.3'
+    id 'org.jetbrains.kotlin.jvm' version '1.1.1'
+    id 'maven'
+    id 'idea'
+}
+
+group 'club.minnced'
+version '1.ALPHA.0'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+sourceSets.test { 'src/test/kotlin' }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}
+
+test {
+    dependsOn clean
+    mustRunAfter clean
+
+    include 'club/minnced/**'
+
+    minHeapSize = "128m"
+    maxHeapSize = "512m"
+
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
+    testCompile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
+
+    compileOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
+    testCompile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
+
+    testCompile 'junit:junit:4.12'
+
+    //compile 'org.slf4j:slf4j-api:1.7.9'
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
