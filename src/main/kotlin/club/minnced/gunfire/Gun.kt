@@ -16,7 +16,7 @@
 
 package club.minnced.gunfire
 
-import club.minnced.gunfire.impl.bullets.ErrorBullet
+import club.minnced.gunfire.impl.bullets.Backfire
 
 open class Gun {
 
@@ -32,8 +32,8 @@ open class Gun {
             it(bullet)
         }
         catch (ex: Throwable) {
-            if (bullet !is ErrorBullet)
-                fire { ErrorBullet(bullet, it, ex) }
+            if (bullet !is Backfire)
+                fire { Backfire(bullet, it, ex) }
         }
     }
 

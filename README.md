@@ -40,7 +40,7 @@ import club.minnced.gunfire.target
 val gun: Gun = Sniper()
 
 fun main(args: Array<String>) {
-    gun.target<ErrorBullet> {
+    gun.target<Backfire> {
         it.error.printStackTrace()
     }
     gun.target<LogBullet> {
@@ -49,7 +49,8 @@ fun main(args: Array<String>) {
 }
 ```
 
-> Note: Here we register a target that will print every **Throwable** that is caught by the Gun!
+> Note: Here we register a target that will print every **Throwable** that is caught by the Gun!<br>
+> Using the `Backfire` bullet specification!
 
 ### Fire Gun
 

@@ -22,7 +22,7 @@ import club.minnced.gunfire.Bullet
  * Wrapper Bullet holding a child bullet of type `E`.
  * This can be fired by any Gun!
  *
- * A sample implementation is the [ErrorBullet] which holds a [Throwable] and the cause [Bullet]
+ * A sample implementation is the [Backfire] which holds a [Throwable] and the cause [Bullet]
  *
  * @param[E] The wrapped Bullet type
  */

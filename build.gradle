@@ -9,27 +9,14 @@ plugins {
 group 'club.minnced'
 version '1.ALPHA.0'
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
-
-sourceSets {
-    test.kotlin { 'src/test/kotlin' }
-}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1'
 }
 
-test {
-    dependsOn clean
-    mustRunAfter clean
-
-    include 'club/minnced/**'
-
-    minHeapSize = "128m"
-    maxHeapSize = "512m"
-
-}
+build { dependsOn shadowJar }
 
 repositories {
     mavenCentral()

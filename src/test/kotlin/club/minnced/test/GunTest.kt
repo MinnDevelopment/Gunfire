@@ -19,13 +19,10 @@ package club.minnced.test
 import club.minnced.gunfire.Bullet
 import club.minnced.gunfire.fire
 import club.minnced.gunfire.impl.Sniper
-import club.minnced.gunfire.impl.bullets.ErrorBullet
+import club.minnced.gunfire.impl.bullets.Backfire
 import club.minnced.gunfire.target
 import org.junit.Before
 import org.junit.Test
-import org.junit.BeforeClass as Setup
-
-typealias static = JvmStatic
 
 class GunTest {
 
@@ -42,7 +39,7 @@ class GunTest {
             println("This is fired for everything")
         }
 
-        gun.target<ErrorBullet> {
+        gun.target<Backfire> {
             println("Caught an Error?!?! Bullet: ${it.bullet} - Target: ${it.target}")
             it.error.printStackTrace()
         }
