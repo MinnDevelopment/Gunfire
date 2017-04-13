@@ -70,4 +70,45 @@ fun logMessage(message: String) {
 
 > Note: Here we fire a LogBullet which holds a message for the targets!
 
+## Setup
 
+JitPack Version: [ ![version](https://jitpack.io/v/MinnDevelopment/Gunfire.svg) ](https://jitpack.io/#MinnDevelopment/Gunfire)
+
+### Gradle
+
+## Gradle
+
+```gradle
+respositories {
+    jcenter()
+    maven {
+        name 'jitpack.io'
+        url 'https://jitpack.io'
+    }
+    // ...
+}
+
+dependencies {
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
+    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
+    compile 'com.github.MinnDevelopment:gunfire:v1.ALPHA.0'
+    // ...
+}
+```
+
+## Maven
+
+```xml
+<repository>
+    <url>https://jitpack.io</url>
+</repository>
+<!-- 
+Add other repositories for Kotlin 1.1.1 and Kotlinx-Coroutines
+This may require jcenter as repository listing!
+-->
+<dependency>
+    <groupid>com.github.MinnDevelopment</groupid>
+    <artifactId>gunfire</artifactId>
+    <version>master-SNAPSHOT</version>
+</dependency>
+```

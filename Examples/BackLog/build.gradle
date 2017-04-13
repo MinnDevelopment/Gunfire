@@ -31,11 +31,14 @@ task wrapper(type: Wrapper) {
 
 repositories {
     jcenter()
+    maven {
+        name 'jitpack.io'
+        url 'https://jitpack.io'
+    }
 }
 
 dependencies {
     compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
     compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
-    compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.1'
-    compile 'club.minnced:gunfire:1.ALPHA.0'
+    compile 'com.github.MinnDevelopment:gunfire:v1.ALPHA.0'
 }
