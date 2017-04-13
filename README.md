@@ -10,8 +10,8 @@ Project Gunfire is a lightweight event bus framework which is built in and for t
 
 ### Dependencies
 
-- Kotlinx-Coroutines for Kotlin 1.1.1
-- Kotlin-Reflect 1.1.1 (included as transitive)
+- Kotlinx-Coroutines for Kotlin 1.1.1+
+- Kotlin std-jre8 1.1.1+
 
 Recommended IDE: Intellij IDEA 2017.1
 
