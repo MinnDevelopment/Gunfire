@@ -11,6 +11,7 @@ Project Gunfire is a lightweight event bus framework which is built in and for t
 ### Dependencies
 
 - Kotlinx-Coroutines for Kotlin 1.1.1
+- Kotlin-Reflect 1.1.1 (included as transitive)
 
 Recommended IDE: Intellij IDEA 2017.1
 
@@ -76,8 +77,6 @@ JitPack Version: [ ![version](https://jitpack.io/v/MinnDevelopment/Gunfire.svg) 
 
 ### Gradle
 
-## Gradle
-
 ```gradle
 respositories {
     jcenter()
@@ -91,12 +90,12 @@ respositories {
 dependencies {
     compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
     compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
-    compile 'com.github.MinnDevelopment:gunfire:v1.ALPHA.0'
+    compile 'com.github.MinnDevelopment:gunfire:master-SNAPSHOT'
     // ...
 }
 ```
 
-## Maven
+### Maven
 
 ```xml
 <repository>
