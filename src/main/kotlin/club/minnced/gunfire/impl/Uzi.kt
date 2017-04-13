@@ -25,6 +25,8 @@ import kotlin.coroutines.experimental.CoroutineContext
 /**
  * Uses coroutines to fire events!
  *
+ * @param[context] The [CoroutineContext] which should be provided to [launch]! Default [CommonPool]
+ *
  * @sample[fireBullet]
  */
 class Uzi(val context: CoroutineContext = CommonPool) : Gun() {

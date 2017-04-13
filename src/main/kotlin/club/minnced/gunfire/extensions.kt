@@ -16,6 +16,18 @@
 
 package club.minnced.gunfire
 
+/**
+ * Extension for a [Gun] that will fire the [Bullet] which is constructed by the specified builder.
+ *
+ * This is a convenience over the [Gun.fireBullet] function as it automatically collects registered targets!
+ *
+ * @param[builder] Constructs a [Bullet] that should be fired at targets! This is built once before iterating the targets!
+ * @param[T] The bullet type that is constructed. This is usually inferred.
+ *
+ * @return A [List] containing all targets that were hit
+ *
+ * @receiver[Gun]
+ */
 @Suppress("UNCHECKED_CAST")
 inline infix fun <reified T : Bullet> Gun.fire(builder: () -> T): List<(T) -> Unit> {
 
@@ -31,6 +43,16 @@ inline infix fun <reified T : Bullet> Gun.fire(builder: () -> T): List<(T) -> Un
     return birdseye
 }
 
+/**
+ * This is a convenience over [Gun.registerTarget] which automatically pulls the type from the generic type provided.
+ *
+ * The [callback] will automatically be called whenever a bullet for this type hits!
+ *
+ * @param[callback] The callback that will execute when this bullet is fired
+ * @param[T] The bullet type
+ *
+ * @receiver[Gun]
+ */
 @Suppress("UNCHECKED_CAST")
 inline infix fun <reified T : Bullet> Gun.target(noinline callback: (T) -> Unit) {
     registerTarget(T::class.java, callback)

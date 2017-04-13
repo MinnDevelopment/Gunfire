@@ -27,7 +27,9 @@ import club.minnced.gunfire.Bullet
  * @param[E] The wrapped Bullet type
  */
 interface BulletShell<out E : Bullet> : Bullet {
-
+    /**
+     * The [Bullet] child of this BulletShell
+     */
     val bullet: E
 
 }

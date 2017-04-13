@@ -32,6 +32,7 @@ task sources(type: Copy) {
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    logging.level = LogLevel.QUIET
     outputFormat = 'javadoc'
     outputDirectory = "$buildDir/docs"
 }

@@ -20,6 +20,10 @@ import club.minnced.gunfire.Bullet
 
 /**
  * Fired Whenever a Throwable is caught by a Gun!
+ *
+ * @param[bullet] The causing bullet
+ * @param[target] The target which threw the exception
+ * @param[error] The [Throwable] that was caught by the Gun
  */
 class Backfire internal constructor(
     override val bullet: Bullet,

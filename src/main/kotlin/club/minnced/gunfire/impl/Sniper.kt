@@ -25,7 +25,9 @@ import club.minnced.gunfire.Gun
  * @sample [fireBullet]
  */
 class Sniper : Gun() {
-
+    /**
+     * Synchronization lock for this Sniper
+     */
     val lock = Any()
 
     override fun <T : Bullet> fireBullet(bullet: T, targets: List<(Bullet) -> Unit>) {

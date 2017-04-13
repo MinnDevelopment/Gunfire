@@ -16,4 +16,7 @@
 
 package club.minnced.gunfire
 
+/**
+ * The Bullet marker interface which can be fired by any [Gun]
+ */
 interface Bullet
