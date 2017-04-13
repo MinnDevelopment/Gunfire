@@ -1,10 +1,20 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.jetbrains.dokka:dokka-gradle-plugin:0.9.9'
+    }
+}
 
 plugins {
     id 'com.github.johnrengelman.shadow' version '1.2.3'
     id 'org.jetbrains.kotlin.jvm' version '1.1.1'
-    id 'maven'
+    id 'maven-publish'
     id 'idea'
 }
+
+apply plugin: 'org.jetbrains.dokka'
 
 group 'club.minnced'
 version '1.ALPHA.0'
@@ -16,7 +26,54 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1'
 }
 
-build { dependsOn shadowJar }
+task sources(type: Copy) {
+    from 'src/main/kotlin'
+    into "$buildDir/sources"
+}
+
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/docs"
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    dependsOn sources
+    classifier = 'sources'
+    from sources.destinationDir.path
+}
+
+task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
+    classifier = 'javadoc'
+    from dokkaJavadoc.outputDirectory
+}
+
+build {
+    dependsOn publishToMavenLocal
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+            groupId 'com.github.MinnDevelopment'
+            artifactId 'gunfire'
+            version project.version
+
+            artifact jar {
+                classifier ''
+            }
+
+            artifact javadocJar {
+                classifier 'javadoc'
+            }
+
+            artifact sourcesJar {
+                classifier 'sources'
+            }
+
+        }
+    }
+}
 
 repositories {
     mavenCentral()
