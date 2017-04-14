@@ -37,5 +37,5 @@ repositories {
 dependencies {
     compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
     compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
-    compile 'com.github.MinnDevelopment:gunfire:master-SNAPSHOT'
+    compile 'com.github.MinnDevelopment.Gunfire:gunfire-core:master-SNAPSHOT'
 }

@@ -16,11 +16,11 @@
 
 package club.minnced.test
 
-import club.minnced.gunfire.Bullet
-import club.minnced.gunfire.fire
-import club.minnced.gunfire.impl.Sniper
-import club.minnced.gunfire.impl.bullets.Backfire
-import club.minnced.gunfire.target
+import club.minnced.gunfire.core.Bullet
+import club.minnced.gunfire.core.fire
+import club.minnced.gunfire.core.impl.Sniper
+import club.minnced.gunfire.core.impl.bullets.Backfire
+import club.minnced.gunfire.core.target
 import org.junit.Before
 import org.junit.Test
 

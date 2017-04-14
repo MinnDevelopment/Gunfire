@@ -1,102 +1,42 @@
-buildscript {
+
+allprojects {
+
+    apply plugin: 'idea'
+    apply plugin: 'maven-publish'
+
     repositories {
         mavenCentral()
+        jcenter()
     }
-    dependencies {
-        classpath 'org.jetbrains.dokka:dokka-gradle-plugin:0.9.9'
-    }
+
 }
 
-plugins {
-    id 'com.github.johnrengelman.shadow' version '1.2.3'
-    id 'org.jetbrains.kotlin.jvm' version '1.1.1'
-    id 'maven-publish'
-    id 'idea'
-}
+group = 'club.minnced'
+version = '1.ALPHA.1'
 
-apply plugin: 'org.jetbrains.dokka'
+subprojects {
+    publishing {
+        publications {
+            maven(MavenPublication) {
 
-group 'club.minnced'
-version '1.ALPHA.0'
+                groupId 'com.github.MinnDevelopment.Gunfire'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+                version rootProject.version
+                artifactId project.name
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.4.1'
-}
+                artifact jar {
+                    classifier ''
+                }
 
-task sources(type: Copy) {
-    from 'src/main/kotlin'
-    into "$buildDir/sources"
-}
+                artifact javadocJar {
+                    classifier 'javadoc'
+                }
 
-task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
-    logging.level = LogLevel.QUIET
-    outputFormat = 'javadoc'
-    outputDirectory = "$buildDir/docs"
-}
+                artifact sourcesJar {
+                    classifier 'sources'
+                }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    dependsOn sources
-    classifier = 'sources'
-    from sources.destinationDir.path
-}
-
-task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    classifier = 'javadoc'
-    from dokkaJavadoc.outputDirectory
-}
-
-build {
-    dependsOn publishToMavenLocal
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-
-            groupId 'com.github.MinnDevelopment'
-            artifactId 'gunfire'
-            version project.version
-
-            artifact jar {
-                classifier ''
             }
-
-            artifact javadocJar {
-                classifier 'javadoc'
-            }
-
-            artifact sourcesJar {
-                classifier 'sources'
-            }
-
         }
-    }
-}
-
-repositories {
-    mavenCentral()
-    jcenter()
-}
-
-dependencies {
-    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
-    testCompile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
-
-    compileOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
-    testCompile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
-
-    testCompile 'junit:junit:4.12'
-
-    //compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.1'
-
-    //compile 'org.slf4j:slf4j-api:1.7.9'
-}
-
-kotlin {
-    experimental {
-        coroutines "enable"
     }
 }

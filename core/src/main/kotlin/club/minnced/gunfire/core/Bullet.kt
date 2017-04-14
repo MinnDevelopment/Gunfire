@@ -14,19 +14,9 @@
  * limitations under the License.
  */
 
-package club.minnced.gunfire.impl.bullets
-
-import club.minnced.gunfire.Bullet
+package club.minnced.gunfire.core
 
 /**
- * Fired Whenever a Throwable is caught by a Gun!
- *
- * @param[bullet] The causing bullet
- * @param[target] The target which threw the exception
- * @param[error] The [Throwable] that was caught by the Gun
+ * The Bullet marker interface which can be fired by any [Gun]
  */
-class Backfire internal constructor(
-    override val bullet: Bullet,
-    val target: (Bullet) -> Unit,
-    val error: Throwable
-) : BulletShell<Bullet>
+interface Bullet

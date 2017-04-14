@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package club.minnced.gunfire.impl
+package club.minnced.gunfire.core.impl
 
-import club.minnced.gunfire.Bullet
-import club.minnced.gunfire.Gun
+import club.minnced.gunfire.core.Bullet
+import club.minnced.gunfire.core.Gun
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext

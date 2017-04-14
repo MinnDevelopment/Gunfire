@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
-package club.minnced.gunfire.impl
+package club.minnced.gunfire.core.impl
 
-import club.minnced.gunfire.Bullet
-import club.minnced.gunfire.Gun
+import club.minnced.gunfire.core.Bullet
+import club.minnced.gunfire.core.Gun
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
+import kotlin.concurrent.thread
 
 /**
- * Runs a synchronized event cycle at once!
+ * Can run up to **6** Event cycles at once!
  *
  * @sample [fireBullet]
  */
-class Sniper : Gun() {
-    /**
-     * Synchronization lock for this Sniper
-     */
-    val lock = Any()
+class Revolver : Gun() {
+
+    private val executor: Executor by lazy {
+        Executors.newFixedThreadPool(6) { r->
+            thread(start = false, name = "Revolver-Fire", isDaemon = true) { r.run() }
+        }
+    }
 
     override fun <T : Bullet> fireBullet(bullet: T, targets: List<(Bullet) -> Unit>) {
-        synchronized(lock) { super.fireBullet(bullet, targets) }
+        executor.execute { super.fireBullet(bullet, targets) }
     }
 }

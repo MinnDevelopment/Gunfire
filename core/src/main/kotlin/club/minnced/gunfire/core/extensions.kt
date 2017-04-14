@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package club.minnced.gunfire
+package club.minnced.gunfire.core
 
 /**
  * Extension for a [Gun] that will fire the [Bullet] which is constructed by the specified builder.

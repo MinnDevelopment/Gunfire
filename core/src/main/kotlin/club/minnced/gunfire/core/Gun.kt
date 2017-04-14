@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package club.minnced.gunfire
+package club.minnced.gunfire.core
 
-import club.minnced.gunfire.impl.bullets.Backfire
+import club.minnced.gunfire.core.impl.bullets.Backfire
 
 /**
  * Generic Gun which executes targets on the calling thread.

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package club.minnced.gunfire.impl.bullets
+package club.minnced.gunfire.core.impl.bullets
 
-import club.minnced.gunfire.Bullet
+import club.minnced.gunfire.core.Bullet
 
 /**
  * Wrapper Bullet holding a child bullet of type `E`.
