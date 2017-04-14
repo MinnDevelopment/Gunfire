@@ -48,7 +48,7 @@ dependencies {
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     logging.level = LogLevel.QUIET
     outputFormat = 'javadoc'
-    outputDirectory = "$buildDir/docs"
+    outputDirectory = "$buildDir/javadoc"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
