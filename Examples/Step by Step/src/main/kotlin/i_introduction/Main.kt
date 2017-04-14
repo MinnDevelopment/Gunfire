@@ -16,13 +16,13 @@
 
 package i_introduction
 
-import club.minnced.gunfire.Bullet
-import club.minnced.gunfire.Gun
-import club.minnced.gunfire.fire
-import club.minnced.gunfire.impl.Revolver
-import club.minnced.gunfire.impl.Sniper
-import club.minnced.gunfire.impl.Uzi
-import club.minnced.gunfire.target
+import club.minnced.gunfire.core.Bullet
+import club.minnced.gunfire.core.Gun
+import club.minnced.gunfire.core.fire
+import club.minnced.gunfire.core.impl.Revolver
+import club.minnced.gunfire.core.impl.Sniper
+import club.minnced.gunfire.core.impl.Uzi
+import club.minnced.gunfire.core.target
 import kotlinx.coroutines.experimental.newSingleThreadContext
 
 /*

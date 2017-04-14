@@ -16,7 +16,6 @@
 
 package i_introduction
 
-import club.minnced.gunfire.Bullet
-
+import club.minnced.gunfire.core.Bullet
 
 object BlankBullet : Bullet

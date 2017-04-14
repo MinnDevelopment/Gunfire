@@ -16,6 +16,6 @@
 
 package club.minnced.backlog
 
-import club.minnced.gunfire.impl.Sniper
+import club.minnced.gunfire.core.impl.Sniper
 
 val LOGGER = Sniper()

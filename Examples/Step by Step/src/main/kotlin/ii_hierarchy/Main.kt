@@ -16,9 +16,9 @@
 
 package ii_hierarchy
 
-import club.minnced.gunfire.fire
-import club.minnced.gunfire.impl.Sniper
-import club.minnced.gunfire.target
+import club.minnced.gunfire.core.fire
+import club.minnced.gunfire.core.impl.Sniper
+import club.minnced.gunfire.core.target
 
 /*
 -- Hierarchy --

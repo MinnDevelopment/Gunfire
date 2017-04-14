@@ -22,8 +22,8 @@ import club.minnced.backlog.out.PrintEvent
 import club.minnced.backlog.out.printEvent
 import club.minnced.backlog.out.printfEvent
 import club.minnced.backlog.out.printlnEvent
-import club.minnced.gunfire.fire
-import club.minnced.gunfire.target
+import club.minnced.gunfire.core.fire
+import club.minnced.gunfire.core.target
 import java.io.IOException
 import java.util.Scanner
 

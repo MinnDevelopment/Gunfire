@@ -34,9 +34,9 @@ Every Gun implementation inherits from the `Gun` class and iterates over all reg
 
 ```kotlin
 
-import club.minnced.gunfire.Gun
-import club.minnced.gunfire.impl.Sniper
-import club.minnced.gunfire.target
+import club.minnced.gunfire.core.Gun
+import club.minnced.gunfire.core.impl.Sniper
+import club.minnced.gunfire.core.target
 
 val gun: Gun = Sniper()
 
@@ -56,9 +56,9 @@ fun main(args: Array<String>) {
 ### Fire Gun
 
 ```kotlin
-import club.minnced.gunfire.Gun
-import club.minnced.gunfire.impl.Sniper
-import club.minnced.gunfire.fire
+import club.minnced.gunfire.core.Gun
+import club.minnced.gunfire.core.impl.Sniper
+import club.minnced.gunfire.core.fire
 
 class LogBullet(val message: String)
 
@@ -90,7 +90,8 @@ respositories {
 dependencies {
     compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
     compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
-    compile 'com.github.MinnDevelopment:gunfire:master-SNAPSHOT'
+    compile 'com.github.MinnDevelopment.Gunfire:core:master-SNAPSHOT'
+    compile 'com.github.MinnDevelopment.Gunfire:commons:master-SNAPSHOT'
     // ...
 }
 ```
@@ -105,9 +106,21 @@ dependencies {
 Add other repositories for Kotlin 1.1.1 and Kotlinx-Coroutines
 This may require jcenter as repository listing!
 -->
-<dependency>
-    <groupid>com.github.MinnDevelopment</groupid>
-    <artifactId>gunfire</artifactId>
-    <version>master-SNAPSHOT</version>
-</dependency>
+<dependencies>
+    <dependency>
+        <groupid>com.github.MinnDevelopment.Gunfire</groupid>
+        <artifactId>core</artifactId>
+        <version>master-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupid>com.github.MinnDevelopment.Gunfire</groupid>
+        <artifactId>commons</artifactId>
+        <version>master-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 ```
+
+## Examples
+
+There is a Step-by-Step guide in the [Examples Directors](https://github.com/MinnDevelopment/Gunfire/Examples)
+and an example which uses bullets to print messages to the console!

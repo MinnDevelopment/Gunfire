@@ -17,7 +17,7 @@
 package club.minnced.backlog.out
 
 import club.minnced.backlog.LOGGER
-import club.minnced.gunfire.fire
+import club.minnced.gunfire.core.fire
 
 fun printfEvent(format: String, vararg args: Any)
     = printEvent(String.format(format, *args))

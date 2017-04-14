@@ -16,7 +16,7 @@
 
 package i_introduction
 
-import club.minnced.gunfire.Bullet
+import club.minnced.gunfire.core.Bullet
 
 
 class MessageBullet(val message: String) : Bullet {

@@ -16,7 +16,7 @@
 
 package club.minnced.backlog
 
-import club.minnced.gunfire.Bullet
+import club.minnced.gunfire.core.Bullet
 import java.io.PrintStream
 
 open class Event(val out: PrintStream, open val message: String) : Bullet

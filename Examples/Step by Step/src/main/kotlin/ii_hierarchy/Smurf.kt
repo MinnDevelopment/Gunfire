@@ -16,7 +16,7 @@
 
 package ii_hierarchy
 
-import club.minnced.gunfire.Bullet
+import club.minnced.gunfire.core.Bullet
 
 
 open class Smurf(val name: String) : Bullet {
