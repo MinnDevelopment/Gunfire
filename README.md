@@ -122,5 +122,5 @@ This may require jcenter as repository listing!
 
 ## Examples
 
-There is a Step-by-Step guide in the [Examples Directors](https://github.com/MinnDevelopment/Gunfire/Examples)
-and an example which uses bullets to print messages to the console!
+There is a [Step-by-Step](https://github.com/MinnDevelopment/Gunfire/tree/master/Examples/Step%20by%20Step/src/main/kotlin) guide
+and an example which uses bullets to print messages to the console  in the [Examples Directories](https://github.com/MinnDevelopment/Gunfire/tree/master/Examples)!
