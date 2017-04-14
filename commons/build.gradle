@@ -36,7 +36,7 @@ apply plugin: 'org.jetbrains.dokka'
 ext.moduleName = 'gunfire-commons'
 
 dependencies {
-    project(':core')
+    compileOnly project(':core')
 
     compileOnly 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
     compileOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14'
@@ -56,4 +56,10 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
     classifier = 'javadoc'
     from dokkaJavadoc.outputDirectory
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }

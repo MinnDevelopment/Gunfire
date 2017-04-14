@@ -33,7 +33,7 @@ plugins {
 
 apply plugin: 'org.jetbrains.dokka'
 
-ext.moduleName = 'gunfire-core'
+ext.moduleName = 'gunfire'
 
 dependencies {
     compileOnly 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.1'
